@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fast, accurate unit conversion tool for length, temperature, data storage, and more.">
+    <title>UnitSnap - Universal Unit Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-icon">🌐</div>
+                <span class="logo-text">Unit<strong>Snap</strong></span>
+            </div>
+            <div class="nav-controls">
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Convert <span class="highlight">Everything.</span></h1>
+            <p class="hero-subtitle">Ultimate conversion tool. Now with Power, Flow, Angle, and Radiation.</p>
+            
+            <div class="search-wrapper">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input 
+                    type="search" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search (e.g. Watts, Degrees, Flow)..."
+                    autocomplete="off"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content - Converter Grid -->
+    <main class="main-content">
+        <div class="container">
+            <div id="convertersGrid" class="converter-grid">
+                <!-- Converter cards will be dynamically generated here -->
+            </div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>😕 No converters found matching your search.</p>
+                <p class="hint">Try searching for: length, temperature, data, speed, or encoding</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Converter Modal Popup -->
+    <div id="converterModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="back-btn" id="backBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="modal-title-group">
+                    <div class="modal-icon" id="modalIcon"></div>
+                    <div>
+                        <h2 class="modal-title" id="modalTitle">Converter</h2>
+                        <p class="modal-subtitle">CONVERTER</p>
+                    </div>
+                </div>
+                <button class="icon-btn" id="fullscreenBtn" title="Fullscreen">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body" id="modalBody">
+                <!-- Converter content will be injected here -->
+            </div>
+
+            <div class="modal-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">📊 Quick Compare</h3>
+                    <div id="quickCompare" class="quick-compare">
+                        <!-- Quick compare values will be shown here -->
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-header">
+                        <h3 class="sidebar-title">🕒 History</h3>
+                        <div class="sidebar-actions">
+                            <button class="text-btn" id="exportCsv">CSV</button>
+                            <button class="text-btn" id="clearHistory">Clear</button>
+                        </div>
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <!-- History items will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 UnitSnap. All conversions are calculated client-side.</p>
+            <p class="disclaimer">Currency rates are approximate. For precise financial calculations, use official sources.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/converters.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
